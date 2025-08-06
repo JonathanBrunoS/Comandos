@@ -22,18 +22,48 @@
             --primary-gold: #FFC107;
             --font-heading: 'Bebas Neue', sans-serif;
             --font-body: 'Roboto', sans-serif;
+            --header-height: 80px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: var(--font-body); background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; padding-top: var(--header-height); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .section { padding: 80px 0; text-align: center; }
         .section-title { font-family: var(--font-heading); font-size: 3.5rem; letter-spacing: 2px; margin-bottom: 20px; color: var(--text-light); }
         .section-subtitle { font-size: 1.2rem; color: var(--text-gray); max-width: 700px; margin: 0 auto 40px auto; }
         .cta-button { display: inline-block; background-color: var(--primary-gold); color: var(--bg-dark); padding: 15px 35px; font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 1.5px; text-decoration: none; border-radius: 5px; transition: transform 0.3s, background-color 0.3s; border: none; cursor: pointer; }
         .cta-button:hover { transform: scale(1.05); background-color: #ffca2c; }
 
-        #hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1599863484293-6a585f32b144?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; }
+        /* --- HEADER / NAVBAR --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .logo { max-height: 50px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; gap: 30px; }
+        .nav-link { color: var(--text-light); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .nav-link:hover { color: var(--primary-gold); }
+        .nav-cta { background: var(--primary-gold); color: var(--bg-dark); padding: 8px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; transition: transform 0.3s; }
+        .nav-cta:hover { transform: scale(1.05); }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
+
+        #hero { margin-top: calc(var(--header-height) * -1); height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1599863484293-6a585f32b144?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; }
         #hero .container { max-width: 900px; }
         #hero h1 { font-family: var(--font-heading); font-size: 5.5rem; letter-spacing: 3px; margin-bottom: 15px; }
         #hero p { font-size: 1.3rem; margin-bottom: 30px; color: var(--text-gray); }
@@ -41,14 +71,15 @@
         #what-is-cr { background: var(--bg-secondary); }
         #what-is-cr p { text-align: left; max-width: 800px; margin: 20px auto; font-size: 1.1rem; }
         
+        #myths { background-color: var(--bg-dark);}
         .myths-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .myth-card { background-color: var(--bg-dark); padding: 30px; border-radius: 8px; border-left: 5px solid var(--primary-gold); }
+        .myth-card { background-color: var(--bg-secondary); padding: 30px; border-radius: 8px; border-left: 5px solid var(--primary-gold); }
         .myth-card i { color: var(--primary-gold); font-size: 2rem; margin-bottom: 15px; }
         .myth-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 10px; }
         .myth-card p { color: var(--text-gray); }
 
         #requirements { background: var(--bg-secondary); }
-        .req-invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; align-items: center; }
+        .req-invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; align-items: flex-start; }
         .requirements-list h3, .investment-box h3 { font-family: var(--font-heading); letter-spacing: 1px; font-size: 2rem; margin-bottom: 20px; color: var(--primary-gold);}
         .req-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 1.1rem; }
         .req-item i { color: var(--primary-gold); font-size: 1.2rem; }
@@ -59,6 +90,7 @@
         .investment-box li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .investment-box li i { color: var(--primary-gold); }
 
+        #quiz {background-color: var(--bg-dark);}
         .quiz-container { background-color: var(--bg-secondary); padding: 40px; border-radius: 10px; max-width: 800px; margin: auto; }
         .quiz-question { display: none; }
         .quiz-question.active { display: block; }
@@ -75,7 +107,8 @@
         .benefits-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; text-align: left; margin-top: 50px; }
         .benefit-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px; }
         .benefit-item i { color: var(--primary-gold); font-size: 1.5rem; margin-top: 5px; }
-
+        
+        #process {background-color: var(--bg-dark);}
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
         .process-step .step-number { font-family: var(--font-heading); font-size: 4rem; color: var(--primary-gold); line-height: 1; }
         .process-step h3 { font-size: 1.5rem; margin: 10px 0; }
@@ -83,15 +116,21 @@
         
         #final-cta { background-color: var(--bg-secondary); }
         
-        footer { padding: 40px 0; text-align: center; }
+        footer { padding: 40px 0; text-align: center; background-color: var(--bg-dark);}
         footer p { color: var(--text-gray); margin-bottom: 20px; }
         .social-icons a { color: var(--text-gray); font-size: 1.8rem; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
         .social-icons a:hover { color: var(--primary-gold); }
 
+        @media (max-width: 1024px) {
+            .nav-menu { position: absolute; top: var(--header-height); left: 0; background: var(--bg-dark); width: 100%; flex-direction: column; padding: 20px 0; gap: 20px; transform: translateY(-150%); transition: transform 0.3s ease-in-out; }
+            .nav-menu.active { transform: translateY(0); }
+            .menu-toggle { display: block; }
+        }
         @media (max-width: 900px) {
             .req-invest-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
+            :root {--header-height: 70px;}
             #hero h1 { font-size: 3.5rem; }
             #hero p { font-size: 1.1rem; }
             .section-title { font-size: 2.5rem; }
@@ -101,141 +140,163 @@
 </head>
 <body>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Sua Liberdade e Segurança Começam Agora</h1>
-            <p>Assessoria completa para você se tornar Caçador, Atirador ou Colecionador (CAC) de forma legal, rápida e sem burocracia.</p>
-            <a href="#requirements" class="cta-button">Ver Requisitos e Valor</a>
+    <header class="header">
+        <div class="container navbar">
+            <a href="#hero">
+                <img src="https://i.postimg.cc/PrCcdJg1/Imagem-do-Whats-App-de-2025-08-06-s-12-30-00-4b387313.jpg" alt="Comandos Consultoria Logo" class="logo">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#what-is-cr" class="nav-link">O que é</a></li>
+                    <li><a href="#requirements" class="nav-link">Requisitos</a></li>
+                    <li><a href="#quiz" class="nav-link">Quiz</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefícios</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Gostaria%20de%20iniciar%20minha%20assessoria%20para%20o%20CAC." target="_blank" class="nav-cta">WhatsApp</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-    </section>
+    </header>
 
-    <section id="what-is-cr" class="section">
-        <div class="container">
-            <h2 class="section-title">Afinal, o que é o CR?</h2>
-            <p class="section-subtitle">Entenda de uma vez por todas o que é o documento que abre as portas do universo armamentista para você.</p>
-            <p>O <strong>Certificado de Registro (CR)</strong> é o documento oficial, emitido pelo Exército Brasileiro, que autoriza o cidadão a se tornar um <strong>Caçador, Atirador Desportivo ou Colecionador (CAC)</strong>. Ele é a sua identidade no mundo do tiro legalizado, permitindo a compra, o transporte (porte de trânsito) e o uso de armas de fogo dentro das normas da sua categoria.</p>
-            <p>Com o CR, você deixa de ser um espectador e passa a ser um praticante ativo, com todos os direitos e responsabilidades que a lei garante. É a forma mais segura e correta de exercer seu direito e sua paixão.</p>
-        </div>
-    </section>
-
-    <section id="myths" class="section">
-        <div class="container">
-            <h2 class="section-title">Acha que o mundo CAC não é para você?</h2>
-            <p class="section-subtitle">Muitos deixam de exercer seu direito por causa de informações falsas. Desmistificamos as principais para você.</p>
-            <div class="myths-grid">
-                <div class="myth-card"> <i class="fas fa-user-slash"></i> <h3>"Preciso ser militar ou policial"</h3> <p><strong>MITO.</strong> Ser CAC é um direito de todo cidadão brasileiro qualificado, sem necessidade de vínculo com forças de segurança.</p> </div>
-                <div class="myth-card"> <i class="fas fa-file-invoice-dollar"></i> <h3>"É muito caro e complicado"</h3> <p><strong>MITO.</strong> Com nossa assessoria, o processo se torna simples, o investimento é acessível e nós cuidamos de toda a burocracia.</p> </div>
-                <div class="myth-card"> <i class="fas fa-shield-halved"></i> <h3>"É perigoso ou ilegal"</h3> <p><strong>MITO.</strong> O processo é 100% legal, regulamentado pelo Exército e focado na posse e uso responsável de armas de fogo.</p> </div>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Sua Liberdade e Segurança Começam Agora</h1>
+                <p>Assessoria completa para você se tornar Caçador, Atirador ou Colecionador (CAC) de forma legal, rápida e sem burocracia.</p>
+                <a href="#requirements" class="cta-button">Ver Requisitos e Valor</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="requirements" class="section">
-        <div class="container">
-            <h2 class="section-title">Requisitos e Investimento</h2>
-            <p class="section-subtitle">Transparência total. Veja exatamente o que você precisa e quanto irá investir para alcançar seu objetivo.</p>
-            <div class="req-invest-grid">
-                <div class="requirements-list">
-                    <h3><i class="fas fa-list-check"></i> Pré-Requisitos Básicos</h3>
-                    <div class="req-item"><i class="fas fa-check"></i> Ser maior de 18 anos (consulte condições).</div>
-                    <div class="req-item"><i class="fas fa-check"></i> Comprovar residência fixa.</div>
-                    <div class="req-item"><i class="fas fa-check"></i> Comprovar ocupação lícita (trabalho).</div>
-                    <div class="req-item"><i class="fas fa-check"></i> Não possuir antecedentes criminais.</div>
-                    <div class="req-item"><i class="fas fa-check"></i> Ser aprovado em avaliação de aptidão psicológica.</div>
-                    <div class="req-item"><i class="fas fa-check"></i> Ser aprovado em avaliação de capacidade técnica de tiro.</div>
-                </div>
-                <div class="investment-box">
-                    <h3><i class="fas fa-coins"></i> Seu Investimento</h3>
-                    <div class="price">R$ 3.200</div>
-                    <div class="price-details">em até <strong>6x sem juros</strong> no cartão<br>ou com <strong>desconto à vista</strong>.</div>
-                    <hr style="border-color: #333; margin: 20px 0;">
-                    <p><strong>O que está incluso:</strong></p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Assessoria completa do início ao fim.</li>
-                        <li><i class="fas fa-check"></i> Todas as taxas do Exército.</li>
-                        <li><i class="fas fa-check"></i> Orientação para laudos e testes.</li>
-                        <li><i class="fas fa-check"></i> Suporte via WhatsApp.</li>
-                    </ul>
-                     <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 20px;"><strong>Prazo médio:</strong> 30 a 60 dias, dependendo da demanda dos órgãos públicos.</p>
+        <section id="what-is-cr" class="section">
+            <div class="container">
+                <h2 class="section-title">Afinal, o que é o CR?</h2>
+                <p class="section-subtitle">Entenda de uma vez por todas o que é o documento que abre as portas do universo armamentista para você.</p>
+                <p>O <strong>Certificado de Registro (CR)</strong> é o documento oficial, emitido pelo Exército Brasileiro, que autoriza o cidadão a se tornar um <strong>Caçador, Atirador Desportivo ou Colecionador (CAC)</strong>. Ele é a sua identidade no mundo do tiro legalizado, permitindo a compra, o transporte (porte de trânsito) e o uso de armas de fogo dentro das normas da sua categoria.</p>
+                <p>Com o CR, você deixa de ser um espectador e passa a ser um praticante ativo, com todos os direitos e responsabilidades que a lei garante. É a forma mais segura e correta de exercer seu direito e sua paixão.</p>
+            </div>
+        </section>
+
+        <section id="myths" class="section">
+            <div class="container">
+                <h2 class="section-title">Acha que o mundo CAC não é para você?</h2>
+                <p class="section-subtitle">Muitos deixam de exercer seu direito por causa de informações falsas. Desmistificamos as principais para você.</p>
+                <div class="myths-grid">
+                    <div class="myth-card"> <i class="fas fa-user-slash"></i> <h3>"Preciso ser militar ou policial"</h3> <p><strong>MITO.</strong> Ser CAC é um direito de todo cidadão brasileiro qualificado, sem necessidade de vínculo com forças de segurança.</p> </div>
+                    <div class="myth-card"> <i class="fas fa-file-invoice-dollar"></i> <h3>"É muito caro e complicado"</h3> <p><strong>MITO.</strong> Com nossa assessoria, o processo se torna simples, o investimento é acessível e nós cuidamos de toda a burocracia.</p> </div>
+                    <div class="myth-card"> <i class="fas fa-shield-halved"></i> <h3>"É perigoso ou ilegal"</h3> <p><strong>MITO.</strong> O processo é 100% legal, regulamentado pelo Exército e focado na posse e uso responsável de armas de fogo.</p> </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="quiz" class="section">
-        <div class="container">
-            <h2 class="section-title">Não sabe por onde começar?</h2>
-            <p class="section-subtitle">Agora que você já sabe os requisitos, responda 3 perguntas e descubra qual modalidade CAC é a ideal para você.</p>
-            <div class="quiz-container">
-                <div id="q1" class="quiz-question active">
-                    <h3>Passo 1: A Missão</h3> <p>Qual seu principal objetivo ao buscar o CR?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-option" data-profile="atirador">A. Praticar tiro como esporte, buscando técnica e performance.</button>
-                        <button class="quiz-option" data-profile="cacador">B. Ter o direito à caça legalizada e responsável.</button>
-                        <button class="quiz-option" data-profile="colecionador">C. Colecionar armamentos por seu valor histórico ou de design.</button>
-                        <button class="quiz-option" data-profile="defesa">D. Garantir meu direito à legítima defesa da minha família e propriedade.</button>
+        <section id="requirements" class="section">
+            <div class="container">
+                <h2 class="section-title">Requisitos e Investimento</h2>
+                <p class="section-subtitle">Transparência total. Veja exatamente o que você precisa e quanto irá investir para alcançar seu objetivo.</p>
+                <div class="req-invest-grid">
+                    <div class="requirements-list">
+                        <h3><i class="fas fa-list-check"></i> Pré-Requisitos Básicos</h3>
+                        <div class="req-item"><i class="fas fa-check"></i> Ser maior de 18 anos (consulte condições).</div>
+                        <div class="req-item"><i class="fas fa-check"></i> Comprovar residência fixa.</div>
+                        <div class="req-item"><i class="fas fa-check"></i> Comprovar ocupação lícita (trabalho).</div>
+                        <div class="req-item"><i class="fas fa-check"></i> Não possuir antecedentes criminais.</div>
+                        <div class="req-item"><i class="fas fa-check"></i> Ser aprovado em avaliação de aptidão psicológica.</div>
+                        <div class="req-item"><i class="fas fa-check"></i> Ser aprovado em avaliação de capacidade técnica de tiro.</div>
+                    </div>
+                    <div class="investment-box">
+                        <h3><i class="fas fa-coins"></i> Seu Investimento</h3>
+                        <div class="price">R$ 3.200</div>
+                        <div class="price-details">em até <strong>6x sem juros</strong> no cartão<br>ou com <strong>desconto à vista</strong>.</div>
+                        <hr style="border-color: #333; margin: 20px 0;">
+                        <p><strong>O que está incluso:</strong></p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Assessoria completa do início ao fim.</li>
+                            <li><i class="fas fa-check"></i> Todas as taxas do Exército.</li>
+                            <li><i class="fas fa-check"></i> Orientação para laudos e testes.</li>
+                            <li><i class="fas fa-check"></i> Suporte via WhatsApp.</li>
+                        </ul>
+                         <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 20px;"><strong>Prazo médio:</strong> 30 a 60 dias, dependendo da demanda dos órgãos públicos.</p>
                     </div>
                 </div>
-                <div id="q2" class="quiz-question">
-                    <h3>Passo 2: O Terreno</h3> <p>Que tipo de atividade mais te atrai?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-option" data-profile="atirador">A. Frequentar clubes de tiro e participar de competições.</button>
-                        <button class="quiz-option" data-profile="cacador">B. Atividades ao ar livre e em áreas rurais.</button>
-                        <button class="quiz-option" data-profile="colecionador">C. Estudo, manutenção e apreciação de peças únicas.</button>
-                        <button class="quiz-option" data-profile="defesa">D. Treinamento tático e de proficiência para defesa.</button>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="container">
+                <h2 class="section-title">Não sabe por onde começar?</h2>
+                <p class="section-subtitle">Agora que você já sabe os requisitos, responda 3 perguntas e descubra qual modalidade CAC é a ideal para você.</p>
+                <div class="quiz-container">
+                    <div id="q1" class="quiz-question active">
+                        <h3>Passo 1: A Missão</h3> <p>Qual seu principal objetivo ao buscar o CR?</p>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-profile="atirador">A. Praticar tiro como esporte, buscando técnica e performance.</button>
+                            <button class="quiz-option" data-profile="cacador">B. Ter o direito à caça legalizada e responsável.</button>
+                            <button class="quiz-option" data-profile="colecionador">C. Colecionar armamentos por seu valor histórico ou de design.</button>
+                            <button class="quiz-option" data-profile="defesa">D. Garantir meu direito à legítima defesa da minha família e propriedade.</button>
+                        </div>
                     </div>
-                </div>
-                <div id="q3" class="quiz-question">
-                    <h3>Passo 3: O Equipamento</h3> <p>Se pudesse escolher, qual seria seu foco?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-option" data-profile="atirador">A. Armas de precisão (curtas e longas).</button>
-                        <button class="quiz-option" data-profile="cacador">B. Rifles de caça e espingardas.</button>
-                        <button class="quiz-option" data-profile="colecionador">C. Armas raras ou de época.</button>
-                        <button class="quiz-option" data-profile="defesa">D. Armas práticas e confiáveis para porte e defesa.</button>
+                    <div id="q2" class="quiz-question">
+                        <h3>Passo 2: O Terreno</h3> <p>Que tipo de atividade mais te atrai?</p>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-profile="atirador">A. Frequentar clubes de tiro e participar de competições.</button>
+                            <button class="quiz-option" data-profile="cacador">B. Atividades ao ar livre e em áreas rurais.</button>
+                            <button class="quiz-option" data-profile="colecionador">C. Estudo, manutenção e apreciação de peças únicas.</button>
+                            <button class="quiz-option" data-profile="defesa">D. Treinamento tático e de proficiência para defesa.</button>
+                        </div>
                     </div>
+                    <div id="q3" class="quiz-question">
+                        <h3>Passo 3: O Equipamento</h3> <p>Se pudesse escolher, qual seria seu foco?</p>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-profile="atirador">A. Armas de precisão (curtas e longas).</button>
+                            <button class="quiz-option" data-profile="cacador">B. Rifles de caça e espingardas.</button>
+                            <button class="quiz-option" data-profile="colecionador">C. Armas raras ou de época.</button>
+                            <button class="quiz-option" data-profile="defesa">D. Armas práticas e confiáveis para porte e defesa.</button>
+                        </div>
+                    </div>
+                    <div id="result-atirador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Atirador Desportivo</h3> <p>Sua missão é a precisão e a performance. Você valoriza a técnica, a disciplina e a adrenalina do esporte. A Comandos Consultoria te dará o suporte completo para obter seu CR e competir com os melhores equipamentos.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Atirador%20Desportivo.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Tiro Desportivo</a> </div>
+                    <div id="result-cacador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Caçador</h3> <p>Sua missão é a atividade ao ar livre, o respeito à natureza e a prática da caça de forma legal e responsável. A Comandos Consultoria te orienta sobre as normas e os melhores equipamentos para a sua jornada.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Caçador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Caça</a> </div>
+                    <div id="result-colecionador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Colecionador</h3> <p>Sua missão é preservar a história e a arte da armaria. Você valoriza peças únicas, seu design e seu legado. A Comandos Consultoria te ajuda a construir seu acervo de forma 100% legal e segura.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Colecionador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Colecionismo</a> </div>
+                    <div id="result-defesa" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Foco em Defesa</h3> <p>Sua missão principal é a segurança. Você busca o direito de proteger sua família e sua propriedade com responsabilidade. O caminho ideal começa como Atirador, para garantir a proficiência. A Comandos Consultoria é sua parceira nessa jornada.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20focado%20em%20Defesa.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Defesa</a> </div>
                 </div>
-                <div id="result-atirador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Atirador Desportivo</h3> <p>Sua missão é a precisão e a performance. Você valoriza a técnica, a disciplina e a adrenalina do esporte. A Comandos Consultoria te dará o suporte completo para obter seu CR e competir com os melhores equipamentos.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Atirador%20Desportivo.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Tiro Desportivo</a> </div>
-                <div id="result-cacador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Caçador</h3> <p>Sua missão é a atividade ao ar livre, o respeito à natureza e a prática da caça de forma legal e responsável. A Comandos Consultoria te orienta sobre as normas e os melhores equipamentos para a sua jornada.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Caçador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Caça</a> </div>
-                <div id="result-colecionador" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Colecionador</h3> <p>Sua missão é preservar a história e a arte da armaria. Você valoriza peças únicas, seu design e seu legado. A Comandos Consultoria te ajuda a construir seu acervo de forma 100% legal e segura.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Colecionador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Colecionismo</a> </div>
-                <div id="result-defesa" class="quiz-result"> <h2>Seu Perfil Ideal é:</h2> <h3>Foco em Defesa</h3> <p>Sua missão principal é a segurança. Você busca o direito de proteger sua família e sua propriedade com responsabilidade. O caminho ideal começa como Atirador, para garantir a proficiência. A Comandos Consultoria é sua parceira nessa jornada.</p> <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20focado%20em%20Defesa.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Defesa</a> </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="benefits" class="section">
-        <div class="container">
-            <h2 class="section-title">O que você conquista com seu CR</h2>
-            <p class="section-subtitle">Ser CAC vai muito além do que se imagina. Veja alguns dos seus direitos:</p>
-            <div class="benefits-list">
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Autorização para adquirir armas e munições em todo o território nacional.</p></div>
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Compra de armamentos direto da indústria, com preços mais vantajosos.</p></div>
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Acesso a armas e munições de calibres controlados.</p></div>
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Transporte de arma para treinos, competições ou caça (Porte de Trânsito).</p></div>
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Direito à aquisição de um maior número de armas, dentro dos limites legais.</p></div>
-                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Facilidade para importar armamentos, seguindo as normas vigentes.</p></div>
+        <section id="benefits" class="section">
+            <div class="container">
+                <h2 class="section-title">O que você conquista com seu CR</h2>
+                <p class="section-subtitle">Ser CAC vai muito além do que se imagina. Veja alguns dos seus direitos:</p>
+                <div class="benefits-list">
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Autorização para adquirir armas e munições em todo o território nacional.</p></div>
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Compra de armamentos direto da indústria, com preços mais vantajosos.</p></div>
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Acesso a armas e munições de calibres controlados.</p></div>
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Transporte de arma para treinos, competições ou caça (Porte de Trânsito).</p></div>
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Direito à aquisição de um maior número de armas, dentro dos limites legais.</p></div>
+                    <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Facilidade para importar armamentos, seguindo as normas vigentes.</p></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="process" class="section">
-        <div class="container">
-            <h2 class="section-title">Deixe a burocracia conosco</h2>
-            <p class="section-subtitle">Nosso processo é desenhado para sua máxima conveniência e tranquilidade.</p>
-            <div class="process-grid">
-                <div class="process-step"> <div class="step-number">01</div> <h3>Diagnóstico</h3> <p>Entendemos seu objetivo, tiramos todas as suas dúvidas e verificamos se você cumpre os requisitos básicos.</p> </div>
-                <div class="process-step"> <div class="step-number">02</div> <h3>Execução</h3> <p>Nós cuidamos de toda a documentação, agendamento de laudos, preenchimento de formulários e pagamento de taxas.</p> </div>
-                <div class="process-step"> <div class="step-number">03</div> <h3>Aprovação</h3> <p>Acompanhamos seu processo do início ao fim junto aos órgãos competentes, até a emissão do seu Certificado de Registro (CR).</p> </div>
+        <section id="process" class="section">
+            <div class="container">
+                <h2 class="section-title">Deixe a burocracia conosco</h2>
+                <p class="section-subtitle">Nosso processo é desenhado para sua máxima conveniência e tranquilidade.</p>
+                <div class="process-grid">
+                    <div class="process-step"> <div class="step-number">01</div> <h3>Diagnóstico</h3> <p>Entendemos seu objetivo, tiramos todas as suas dúvidas e verificamos se você cumpre os requisitos básicos.</p> </div>
+                    <div class="process-step"> <div class="step-number">02</div> <h3>Execução</h3> <p>Nós cuidamos de toda a documentação, agendamento de laudos, preenchimento de formulários e pagamento de taxas.</p> </div>
+                    <div class="process-step"> <div class="step-number">03</div> <h3>Aprovação</h3> <p>Acompanhamos seu processo do início ao fim junto aos órgãos competentes, até a emissão do seu Certificado de Registro (CR).</p> </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="final-cta" class="section">
-        <div class="container">
-            <h2 class="section-title">Pronto para começar?</h2>
-            <p class="section-subtitle">A segurança e a liberdade que você busca estão a uma conversa de distância. Fale com nossa equipe agora mesmo e tire todas as suas dúvidas sem compromisso.</p>
-            <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Gostaria%20de%20iniciar%20minha%20assessoria%20para%20o%20CAC." target="_blank" class="cta-button">Chamar no WhatsApp</a>
-        </div>
-    </section>
+        <section id="final-cta" class="section">
+            <div class="container">
+                <h2 class="section-title">Pronto para começar?</h2>
+                <p class="section-subtitle">A segurança e a liberdade que você busca estão a uma conversa de distância. Fale com nossa equipe agora mesmo e tire todas as suas dúvidas sem compromisso.</p>
+                <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Gostaria%20de%20iniciar%20minha%20assessoria%20para%20o%20CAC." target="_blank" class="cta-button">Chamar no WhatsApp</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -249,6 +310,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if(menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Quiz Logic
             const quizContainer = document.querySelector('.quiz-container');
             if (quizContainer) {
                 const questions = quizContainer.querySelectorAll('.quiz-question');
