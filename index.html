@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Consultoria - Sua Assessoria para CAC</title>
+    
+    <meta name="description" content="Assessoria completa para você se tornar Caçador, Atirador ou Colecionador (CAC) de forma legal, rápida e sem burocracia. Descubra seu perfil ideal.">
+    <meta name="keywords" content="CAC, CR, Certificado de Registro, Atirador, Caçador, Colecionador, Assessoria de Armas, Consultoria CAC, Cuiabá">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- CSS RESET & BASIC SETUP --- */
+        :root {
+            --bg-dark: #121212;
+            --bg-secondary: #1f1f1f;
+            --text-light: #f0f0f0;
+            --text-gray: #a9a9a9;
+            --primary-gold: #FFC107; /* Um dourado/amarelo forte e vibrante */
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- UTILITY & CONTAINER --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--bg-dark);
+            padding: 15px 35px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #ffca2c;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1599863484293-6a585f32b144?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            /* Você pode trocar a URL da imagem de fundo acima */
+        }
+        
+        #hero .container {
+            max-width: 900px;
+        }
+
+        #hero h1 {
+            font-family: var(--font-heading);
+            font-size: 5.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+
+        #hero .secondary-link {
+            display: block;
+            margin-top: 20px;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        #hero .secondary-link:hover {
+            color: var(--primary-gold);
+        }
+
+        /* --- MYTHS SECTION --- */
+        #myths {
+            background-color: var(--bg-secondary);
+        }
+
+        .myths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .myth-card {
+            background-color: var(--bg-dark);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-gold);
+        }
+
+        .myth-card i {
+            color: var(--primary-gold);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .myth-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .myth-card p {
+            color: var(--text-gray);
+        }
+
+        /* --- QUIZ SECTION --- */
+        .quiz-container {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .quiz-question {
+            display: none;
+        }
+        .quiz-question.active {
+            display: block;
+        }
+
+        .quiz-question h3 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .quiz-option {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            border: 2px solid var(--text-gray);
+            padding: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        .quiz-option:hover {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--bg-dark);
+        }
+
+        .quiz-result {
+            display: none; /* Hidden by default */
+        }
+        .quiz-result h2 {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            font-family: var(--font-heading);
+            letter-spacing: 2px;
+        }
+        .quiz-result h3 {
+             font-size: 3rem;
+        }
+        .quiz-result p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin: 20px auto 30px auto;
+            max-width: 600px;
+        }
+
+
+        /* --- BENEFITS SECTION --- */
+        #benefits {
+            background-color: var(--bg-secondary);
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 50px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+        }
+        .benefit-item i {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        /* --- PROCESS SECTION --- */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .process-step {
+            padding: 20px;
+        }
+        .process-step .step-number {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--primary-gold);
+            line-height: 1;
+        }
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .process-step p {
+            color: var(--text-gray);
+        }
+        
+        /* --- FINAL CTA SECTION --- */
+        #final-cta {
+             background-color: var(--bg-secondary);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        .social-icons a {
+            color: var(--text-gray);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 3.5rem; }
+            #hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.5rem; }
+            .section-subtitle { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Sua Liberdade e Segurança Começam Agora</h1>
+            <p>Assessoria completa para você se tornar Caçador, Atirador ou Colecionador (CAC) de forma legal, rápida e sem burocracia.</p>
+            <a href="#quiz" class="cta-button">Descubra seu Perfil Ideal</a>
+            <a href="#process" class="secondary-link">Ou veja como funciona o processo &darr;</a>
+        </div>
+    </section>
+
+    <section id="myths" class="section">
+        <div class="container">
+            <h2 class="section-title">Acha que o mundo CAC não é para você?</h2>
+            <p class="section-subtitle">Muitos deixam de exercer seu direito por causa de informações falsas. Desmistificamos as principais para você.</p>
+            <div class="myths-grid">
+                <div class="myth-card">
+                    <i class="fas fa-user-slash"></i>
+                    <h3>"Preciso ser militar ou policial"</h3>
+                    <p><strong>MITO.</strong> Ser CAC é um direito de todo cidadão brasileiro qualificado, sem necessidade de vínculo com forças de segurança.</p>
+                </div>
+                <div class="myth-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>"É muito caro e complicado"</h3>
+                    <p><strong>MITO.</strong> Com nossa assessoria, o processo se torna simples, o investimento é acessível e nós cuidamos de toda a burocracia.</p>
+                </div>
+                <div class="myth-card">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>"É perigoso ou ilegal"</h3>
+                    <p><strong>MITO.</strong> O processo é 100% legal, regulamentado pelo Exército e focado na posse e uso responsável de armas de fogo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="section">
+        <div class="container">
+            <h2 class="section-title">Qual comando tem a sua missão?</h2>
+            <p class="section-subtitle">Responda 3 perguntas rápidas e descubra qual modalidade CAC é a mais adequada para o seu objetivo.</p>
+            
+            <div class="quiz-container">
+                <div id="q1" class="quiz-question active">
+                    <h3>Passo 1: A Missão</h3>
+                    <p>Qual seu principal objetivo ao buscar o CR?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-profile="atirador">A. Praticar tiro como esporte, buscando técnica e performance.</button>
+                        <button class="quiz-option" data-profile="cacador">B. Ter o direito à caça legalizada e responsável.</button>
+                        <button class="quiz-option" data-profile="colecionador">C. Colecionar armamentos por seu valor histórico ou de design.</button>
+                        <button class="quiz-option" data-profile="defesa">D. Garantir meu direito à legítima defesa da minha família e propriedade.</button>
+                    </div>
+                </div>
+
+                <div id="q2" class="quiz-question">
+                    <h3>Passo 2: O Terreno</h3>
+                    <p>Que tipo de atividade mais te atrai?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-profile="atirador">A. Frequentar clubes de tiro e participar de competições.</button>
+                        <button class="quiz-option" data-profile="cacador">B. Atividades ao ar livre e em áreas rurais.</button>
+                        <button class="quiz-option" data-profile="colecionador">C. Estudo, manutenção e apreciação de peças únicas.</button>
+                        <button class="quiz-option" data-profile="defesa">D. Treinamento tático e de proficiência para defesa.</button>
+                    </div>
+                </div>
+
+                <div id="q3" class="quiz-question">
+                    <h3>Passo 3: O Equipamento</h3>
+                    <p>Se pudesse escolher, qual seria seu foco?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-profile="atirador">A. Armas de precisão (curtas e longas).</button>
+                        <button class="quiz-option" data-profile="cacador">B. Rifles de caça e espingardas.</button>
+                        <button class="quiz-option" data-profile="colecionador">C. Armas raras ou de época.</button>
+                        <button class="quiz-option" data-profile="defesa">D. Armas práticas e confiáveis para porte e defesa.</button>
+                    </div>
+                </div>
+
+                <div id="result-atirador" class="quiz-result">
+                    <h2>Seu Perfil Ideal é:</h2>
+                    <h3>Atirador Desportivo</h3>
+                    <p>Sua missão é a precisão e a performance. Você valoriza a técnica, a disciplina e a adrenalina do esporte. A Comandos Consultoria te dará o suporte completo para obter seu CR e competir com os melhores equipamentos.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Atirador%20Desportivo.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Tiro Desportivo</a>
+                </div>
+                <div id="result-cacador" class="quiz-result">
+                    <h2>Seu Perfil Ideal é:</h2>
+                    <h3>Caçador</h3>
+                    <p>Sua missão é a atividade ao ar livre, o respeito à natureza e a prática da caça de forma legal e responsável. A Comandos Consultoria te orienta sobre as normas e os melhores equipamentos para a sua jornada.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Caçador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Caça</a>
+                </div>
+                <div id="result-colecionador" class="quiz-result">
+                    <h2>Seu Perfil Ideal é:</h2>
+                    <h3>Colecionador</h3>
+                    <p>Sua missão é preservar a história e a arte da armaria. Você valoriza peças únicas, seu design e seu legado. A Comandos Consultoria te ajuda a construir seu acervo de forma 100% legal e segura.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20de%20Colecionador.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Colecionismo</a>
+                </div>
+                <div id="result-defesa" class="quiz-result">
+                    <h2>Seu Perfil Ideal é:</h2>
+                    <h3>Foco em Defesa</h3>
+                    <p>Sua missão principal é a segurança. Você busca o direito de proteger sua família e sua propriedade com responsabilidade. O caminho ideal começa como Atirador, para garantir a proficiência. A Comandos Consultoria é sua parceira nessa jornada.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Fiz%20o%20quiz%20no%20site%20e%20meu%20perfil%20é%20focado%20em%20Defesa.%20Gostaria%20de%20mais%20informações." target="_blank" class="cta-button">Falar com um Especialista em Defesa</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="section">
+        <div class="container">
+            <h2 class="section-title">O que você conquista com seu CR</h2>
+            <p class="section-subtitle">Ser CAC vai muito além do que se imagina. Veja alguns dos seus direitos:</p>
+            <div class="benefits-list">
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Autorização para adquirir armas e munições em todo o território nacional.</p></div>
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Compra de armamentos direto da indústria, com preços mais vantajosos.</p></div>
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Acesso a armas e munições de calibres controlados (Nível 3).</p></div>
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Transporte de arma para treinos, competições ou caça (Porte de Trânsito).</p></div>
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Direito à aquisição de um maior número de armas, dentro dos limites legais.</p></div>
+                <div class="benefit-item"><i class="fa-solid fa-check-double"></i> <p>Facilidade para importar armamentos, seguindo as normas vigentes.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section">
+        <div class="container">
+            <h2 class="section-title">Deixe a burocracia conosco</h2>
+            <p class="section-subtitle">Nosso processo é desenhado para sua máxima conveniência e tranquilidade.</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Entendemos seu objetivo, tiramos todas as suas dúvidas e verificamos se você cumpre os requisitos básicos.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Execução</h3>
+                    <p>Nós cuidamos de toda a documentação, agendamento de laudos, preenchimento de formulários e pagamento de taxas.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Aprovação</h3>
+                    <p>Acompanhamos seu processo do início ao fim junto aos órgãos competentes, até a emissão do seu Certificado de Registro (CR).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="final-cta" class="section">
+        <div class="container">
+            <h2 class="section-title">Pronto para começar?</h2>
+            <p class="section-subtitle">A segurança e a liberdade que você busca estão a uma conversa de distância. Fale com nossa equipe agora mesmo e tire todas as suas dúvidas sem compromisso.</p>
+            <a href="https://api.whatsapp.com/send?phone=5565996146325&text=Olá!%20Gostaria%20de%20iniciar%20minha%20assessoria%20para%20o%20CAC." target="_blank" class="cta-button">Chamar no WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Comandos Consultoria - Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/comandos.consultoria" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5565996146325" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizContainer = document.querySelector('.quiz-container');
+            const questions = quizContainer.querySelectorAll('.quiz-question');
+            const options = quizContainer.querySelectorAll('.quiz-option');
+            const results = {
+                atirador: quizContainer.querySelector('#result-atirador'),
+                cacador: quizContainer.querySelector('#result-cacador'),
+                colecionador: quizContainer.querySelector('#result-colecionador'),
+                defesa: quizContainer.querySelector('#result-defesa')
+            };
+
+            let currentQuestionIndex = 0;
+            const scores = {
+                atirador: 0,
+                cacador: 0,
+                colecionador: 0,
+                defesa: 0
+            };
+
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // 1. Get profile and add score
+                    const profile = this.getAttribute('data-profile');
+                    scores[profile]++;
+                    
+                    // 2. Move to next question or show results
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        showQuestion(currentQuestionIndex);
+                    } else {
+                        showResult();
+                    }
+                });
+            });
+
+            function showQuestion(index) {
+                questions.forEach((q, i) => {
+                    q.classList.toggle('active', i === index);
+                });
+            }
+
+            function showResult() {
+                // Hide all questions
+                questions.forEach(q => q.style.display = 'none');
+
+                // Determine the winner
+                let maxScore = -1;
+                let winnerProfile = '';
+                for (const profile in scores) {
+                    if (scores[profile] > maxScore) {
+                        maxScore = scores[profile];
+                        winnerProfile = profile;
+                    }
+                }
+                
+                // Show the winning result div
+                if (results[winnerProfile]) {
+                    results[winnerProfile].style.display = 'block';
+                } else {
+                    // Fallback to a default result if something goes wrong
+                    results.defesa.style.display = 'block';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
