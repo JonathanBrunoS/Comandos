@@ -55,6 +55,13 @@
             align-items: center;
             width: 100%;
         }
+        .logo-container { /* Contêiner para a logo com fundo preto */
+            background-color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: flex; /* Garante alinhamento correto da imagem */
+            align-items: center;
+        }
         .logo { max-height: 50px; }
         .nav-menu { display: flex; list-style: none; align-items: center; gap: 30px; }
         .nav-link { color: var(--text-light); text-decoration: none; font-weight: bold; transition: color 0.3s; }
@@ -63,6 +70,7 @@
         .nav-cta:hover { transform: scale(1.05); }
         .menu-toggle { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
 
+        /* --- HERO SECTION --- */
         #hero { margin-top: calc(var(--header-height) * -1); height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1599863484293-6a585f32b144?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; }
         #hero .container { max-width: 900px; }
         #hero h1 { font-family: var(--font-heading); font-size: 5.5rem; letter-spacing: 3px; margin-bottom: 15px; }
@@ -107,15 +115,15 @@
         .benefits-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; text-align: left; margin-top: 50px; }
         .benefit-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px; }
         .benefit-item i { color: var(--primary-gold); font-size: 1.5rem; margin-top: 5px; }
-        
+
         #process {background-color: var(--bg-dark);}
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
         .process-step .step-number { font-family: var(--font-heading); font-size: 4rem; color: var(--primary-gold); line-height: 1; }
         .process-step h3 { font-size: 1.5rem; margin: 10px 0; }
         .process-step p { color: var(--text-gray); }
-        
+
         #final-cta { background-color: var(--bg-secondary); }
-        
+
         footer { padding: 40px 0; text-align: center; background-color: var(--bg-dark);}
         footer p { color: var(--text-gray); margin-bottom: 20px; }
         .social-icons a { color: var(--text-gray); font-size: 1.8rem; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
@@ -142,7 +150,7 @@
 
     <header class="header">
         <div class="container navbar">
-            <a href="#hero">
+            <a href="#hero" class="logo-container">
                 <img src="https://i.postimg.cc/PrCcdJg1/Imagem-do-Whats-App-de-2025-08-06-s-12-30-00-4b387313.jpg" alt="Comandos Consultoria Logo" class="logo">
             </a>
             <nav>
